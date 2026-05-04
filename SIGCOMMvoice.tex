@@ -216,7 +216,7 @@ The majority of conference proceedings documentation will use the {\verb|acmconf
 
 
 \section{Threat Model}
-Current PON specifications from ITU-T and IEEE define a limited threat model that considers only payload leakage to an adversary. As a result, the payload is encrypted, but the header remains in plaintext.
+Current PON specifications from ITU-T and IEEE define a limited threat model that considers only payload leakage to an adversary. As a result, the payload is encrypted, but the header remains in plaintext. The header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means 
 
 %Sample 표
 \begin{table}[H]
