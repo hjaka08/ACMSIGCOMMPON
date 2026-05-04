@@ -213,18 +213,17 @@ Current PON specifications from ITU-T and IEEE define a limited threat model tha
     \toprule
     \textbf{Vendor} & \textbf{Name} & \makecell{\textbf{Payload}\\\textbf{Encryption}} & \makecell{\textbf{Header}\\\textbf{Encryption}} \\
     \midrule
-    ITU-T     & XGS-PON   & \centering$\boxtimes$ & \centering\arraybackslash$\boxtimes$ \\
-    ITU-T    & XG-PON & \centering$\boxtimes$ & \centering\arraybackslash$\boxtimes$ \\
-    ITU-T   & NG-PON & \centering$\boxtimes$ & \centering\arraybackslash$\square$   \\
-    ITU-T   & 50G-PON & \centering$\boxtimes$ & \centering\arraybackslash$\square$   \\
-    ITU-T & DVB-S2(X) & \centering$\boxtimes$ & \centering\arraybackslash$\square$   \\
-    STM       & DVB-S2    & \centering$\boxtimes$ & \centering\arraybackslash$\square$   \\
-    Newtec    & DVB-S2(X) & \centering$\square$   & \centering\arraybackslash$\boxtimes$ \\
-    Advantech & DVB-S2(X) & \centering$\square$   & \centering\arraybackslash$\boxtimes$ \\
-    Viasat    & DVB-S2(X) & \centering$\boxtimes$ & \centering\arraybackslash$\square$   \\
+    ITU-T & GPON     & \centering\cmark & \centering\arraybackslash\cmark \\
+    ITU-T & XGS-PON  & \centering\cmark & \centering\arraybackslash\cmark \\
+    ITU-T & XG-PON   & \centering\cmark & \centering\arraybackslash\cmark \\
+    ITU-T & NG-PON2  & \centering\cmark & \centering\arraybackslash\xmark \\
+    ITU-T & 50G-PON  & \centering\cmark & \centering\arraybackslash\xmark \\
+    IEEE  & EPON     & \centering\cmark & \centering\arraybackslash\xmark \\
+    IEEE  & 10G-EPON & \centering\cmark & \centering\arraybackslash\xmark \\
+    IEEE  & AAAAA    & \centering\xmark & \centering\arraybackslash\cmark \\
     \bottomrule
   \end{tabularx}
-  \caption{Encryption characteristics of Popular PON protocols}
+  \caption{Payload and Header Encryption Support in Major PON Standards}
   \label{tab:Encryption-PON}
 \end{table}
 
