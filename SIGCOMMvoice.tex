@@ -200,25 +200,24 @@ In a typical PON, an Optical Line Terminal (OLT), which is located at the Centra
 
 
 \section{Threat Model}
-Current PON specifications from ITU-T and IEEE define a limited threat model that considers only payload leakage to an adversary. As a result, the payload is encrypted, but the header remains in plaintext. The header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary can leak user traffic by just receiving optical signals from same splitter and there's no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON.
+Current PON specifications from ITU-T and IEEE define a limited threat model that considers only payload leakage to an adversary. As a result, the payload is encrypted, but the header remains in plaintext. (Table 1) The header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary can leak user traffic by just receiving optical signals from same splitter and there's no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON.
 
 %Sample 표
 \begin{table}[H]
   \label{tab:satellite-terminals}
-  \begin{tabular}{lllcc}
+ \begin{tabular}{lllcc}
     \toprule
-    \textbf{Vendor} & \textbf{Phy Layer} & \textbf{Link Layer} & \textbf{Link Layer} & \textbf{Net Layer} \\
-                    & \textbf{Protocol}  & \textbf{Protocol}   & \textbf{Crypto}     & \textbf{Crypto} \\
+    \textbf{Vendor} & \textbf{Phy Layer} & \textbf{Link Layer} & \textbf{Link Crypto} & \textbf{Net Crypto} \\
     \midrule
-    Gilat     & DVB-S2(X) & SkyEdge   & $\boxtimes$ & $\boxtimes$ \\
+    Gilat     & DVB-S2(X) & SkyEdge    & $\boxtimes$ & $\boxtimes$ \\
     Hughes    & DVB-S2(X) & HX/Jupiter & $\boxtimes$ & $\boxtimes$ \\
-    iDirect   & DVB-S2(X) & iDirect   & $\boxtimes$ & $\square$ \\
-    Comtech   & DVB-S2(X) & Heights   & $\boxtimes$ & $\square$ \\
-    ND SatCom & DVB-S2(X) & SKYWAN    & $\boxtimes$ & $\square$ \\
-    STM       & DVB-S2    & SatLink   & $\boxtimes$ & $\square$ \\
-    Newtec    & DVB-S2(X) & Dialog    & $\square$   & $\boxtimes$ \\
-    Advantech & DVB-S2(X) & SatNet    & $\square$   & $\boxtimes$ \\
-    Viasat    & DVB-S2(X) & ArcLight  & $\boxtimes$ & $\square$ \\
+    iDirect   & DVB-S2(X) & iDirect    & $\boxtimes$ & $\square$   \\
+    Comtech   & DVB-S2(X) & Heights    & $\boxtimes$ & $\square$   \\
+    ND SatCom & DVB-S2(X) & SKYWAN     & $\boxtimes$ & $\square$   \\
+    STM       & DVB-S2    & SatLink    & $\boxtimes$ & $\square$   \\
+    Newtec    & DVB-S2(X) & Dialog     & $\square$   & $\boxtimes$ \\
+    Advantech & DVB-S2(X) & SatNet     & $\square$   & $\boxtimes$ \\
+    Viasat    & DVB-S2(X) & ArcLight   & $\boxtimes$ & $\square$   \\
     \bottomrule
   \end{tabular}
   \caption{Encyption characteristics of Popular PON protocols}
