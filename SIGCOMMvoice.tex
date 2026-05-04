@@ -109,6 +109,7 @@
 \usepackage{array}      
 \usepackage{makecell}
 \usepackage{tabularx}  
+\usepackage{pifont}
 %%
 %% end of the preamble, start of the body of the document source.
 \begin{document}
@@ -207,23 +208,26 @@ Current PON specifications from ITU-T and IEEE define a limited threat model tha
 %Sample 표
 
 
+\newcommand{\cmark}{\ding{51}}  % ✓
+\newcommand{\xmark}{\ding{55}}  % ✗
 \begin{table}[H]
   \centering
   \begin{tabularx}{\linewidth}{llXX}
     \toprule
     \textbf{Vendor} & \textbf{Name} & \makecell{\textbf{Payload}\\\textbf{Encryption}} & \makecell{\textbf{Header}\\\textbf{Encryption}} \\
     \midrule
-    ITU-T & GPON     & \centering\cmark & \centering\arraybackslash\cmark \\
-    ITU-T & XGS-PON  & \centering\cmark & \centering\arraybackslash\cmark \\
-    ITU-T & XG-PON   & \centering\cmark & \centering\arraybackslash\cmark \\
+    ITU-T & GPON     & \centering\cmark & \centering\arraybackslash\xmark \\
+    ITU-T & XGS-PON  & \centering\cmark & \centering\arraybackslash\xmark \\
+    ITU-T & XG-PON   & \centering\cmark & \centering\arraybackslash\xmark \\
     ITU-T & NG-PON2  & \centering\cmark & \centering\arraybackslash\xmark \\
     ITU-T & 50G-PON  & \centering\cmark & \centering\arraybackslash\xmark \\
     IEEE  & EPON     & \centering\cmark & \centering\arraybackslash\xmark \\
     IEEE  & 10G-EPON & \centering\cmark & \centering\arraybackslash\xmark \\
-    IEEE  & AAAAA    & \centering\xmark & \centering\arraybackslash\cmark \\
+    IEEE  & AAAAA    & \centering\cmark & \centering\arraybackslash\xmark \\
     \bottomrule
   \end{tabularx}
-  \caption{Payload and Header Encryption Support in Major PON Standards}
+  \caption{Encryption characteristics of Major PON Standards}
+  %\caption{Payload and Header Encryption Support in Major PON Standards}
   \label{tab:Encryption-PON}
 \end{table}
 
