@@ -104,6 +104,7 @@
 %% Uncommenting
 %% the next command will enable that style.
 %%\citestyle{acmauthoryear}
+\let\Bbbk\relax  
 \usepackage{amssymb}
 \usepackage{booktabs} 
 \usepackage{array}      
@@ -217,8 +218,8 @@ Current PON specifications from ITU-T and IEEE define a limited threat model tha
     \textbf{Vendor} & \textbf{Name} & \makecell{\textbf{Payload}\\\textbf{Encryption}} & \makecell{\textbf{Header}\\\textbf{Encryption}} \\
     \midrule
     ITU-T & GPON     & \centering\cmark & \centering\arraybackslash\xmark \\
-    ITU-T & XGS-PON  & \centering\cmark & \centering\arraybackslash\xmark \\
-    ITU-T & XG-PON   & \centering\cmark & \centering\arraybackslash\xmark \\
+    ITU-T & XG-PON  & \centering\cmark & \centering\arraybackslash\xmark \\
+    ITU-T & XGS-PON   & \centering\cmark & \centering\arraybackslash\xmark \\
     ITU-T & NG-PON2  & \centering\cmark & \centering\arraybackslash\xmark \\
     ITU-T & 50G-PON  & \centering\cmark & \centering\arraybackslash\xmark \\
     IEEE  & EPON     & \centering\cmark & \centering\arraybackslash\xmark \\
@@ -226,7 +227,7 @@ Current PON specifications from ITU-T and IEEE define a limited threat model tha
     IEEE  & AAAAA    & \centering\cmark & \centering\arraybackslash\xmark \\
     \bottomrule
   \end{tabularx}
-  \caption{Encryption characteristics of Major PON Standards}
+  \caption{Encryption characteristics of Major PON Standards ~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}}
   %\caption{Payload and Header Encryption Support in Major PON Standards}
   \label{tab:Encryption-PON}
 \end{table}
