@@ -206,7 +206,7 @@ In a typical PON architecture, an Optical Line Terminal (OLT), which is located 
 
 
 \section{Threat Model}
-Current PON specifications from ITU-T and IEEE define a limited threat model that considers only payload leakage to an adversary. As a result, the payload is encrypted, but the header remains in plaintext. (Table 1) The header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary can leak user traffic by just receiving optical signals from same splitter and there's no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON.
+Current PON specifications from ITU-T and IEEE define a limited threat model that considers only payload leakage to an adversary. As a result, the payload is encrypted, but the header remains in plaintext. (Table 1) The header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there's no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON.
 
 %Sample 표
 
