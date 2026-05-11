@@ -190,6 +190,7 @@ However, major PON protocols standardized by ITU-T and IEEE support only payload
 
 
 In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture based on XGEM frame.
+a security-enhanced PON architecture that randomizes the XGEM Port-ID to prevent an adversary on the splitter from tracking per-ONU traffic, while preserving the framing and multiplexing functions on which ONUs depend.
 
 \section{Background}
 
@@ -225,7 +226,7 @@ Current PON specifications from ITU-T and IEEE define a limited threat model tha
     ITU-T & XG-PON            & XGEM     & \cmark & \xmark \\
     ITU-T & XGS-PON           & XGEM     & \cmark & \xmark \\
     ITU-T & NG-PON2           & XGEM     & \cmark & \xmark \\
-    ITU-T & 50G-PON           & XGEM     & \cmark & \xmark \\
+    ITU-T & Higher Speed PON  & XGEM     & \cmark & \xmark \\
     IEEE  & EPON              & Ethernet & \cmark & \xmark \\
     IEEE  & 10G-EPON          & Ethernet & \cmark & \xmark \\
     IEEE  & AAAAA             & Ethernet & \cmark & \xmark \\
