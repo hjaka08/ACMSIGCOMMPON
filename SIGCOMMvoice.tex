@@ -228,7 +228,7 @@ Current PON specifications from ITU-T and IEEE define a limited threat model tha
     ITU-T & Higher Speed PON  & XGEM     & \cmark & \xmark \\
     IEEE  & EPON              & Ethernet & \cmark & \xmark \\
     IEEE  & 10G-EPON          & Ethernet & \cmark & \xmark \\
-    IEEE  & AAAAA             & Ethernet & \cmark & \xmark \\
+    IEEE  & 25G/50G-EPON      & Ethernet & \cmark & \xmark \\
     \bottomrule
   \end{tabularx}
   \caption{Encryption support in Major PON Standards ~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}}
@@ -254,13 +254,11 @@ Current PON specifications from ITU-T and IEEE define a limited threat model tha
 %%%%PON 헤더 비교 표 작성
 The three encapsulation methods (GEM, XGEM, Ethernet) expose different fields in plaintext to an adversary 
 sharing the splitter. 
-\textbf{GEM} carries a 12-bit PLI that reveals payload 
-length, and a 12-bit Port-ID that  identifies ONU. 
-\textbf{XGEM} yields both fields
-(14-bit PLI, 16-bit Port-ID)
-\textbf{Ethernet} has the 16-bit Length/Type field which reveals payload length when in length-mode, and the 15-bit LLID embedded in the modified preamble persistently identifies the receiving ONU
+\textbf{GEM} carries a 12-bit PLI that reveals payload length, and a 12-bit Port-ID that identifies the ONU. 
+\textbf{XGEM} carries a 14-bit PLI that reveals payload length , and a 16-bit Port-ID that identifies the ONU. 
+\textbf{Ethernet} has the 16-bit Length/Type field that reveals payload length when in length-mode, and the 15-bit LLID identifies the ONU.
 
-The header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
+Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
 
 
 
