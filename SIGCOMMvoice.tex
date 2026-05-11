@@ -143,6 +143,8 @@
 \begin{abstract}
   Passive Optical Network (PON) is a  optical link which is primarily deployed at X-haul.
   In this paper, We suggest a Secured Architecture for PON which ensures protecting user's privacy.
+
+  Passive Optical Network (PON) is widely deployed in FTTx access and cellular (LTE/5G) X-haul networks. Because downstream traffic is broadcast to every ONU sharing the same splitter, any device on the splitter can passively observe all downstream signals. Major PON standards from ITU-T and IEEE encrypt only the payload, leaving the frame header---including the payload length indicator (PLI) and Port-ID---in plaintext. Recent work has shown that these plaintext fields alone suffice to infer encrypted user activity. This paper propose \textbf{SecurePON}, a security-enhanced PON architecture that encrypts header fields while preserving the framing and multiplexing functions on which ONUs depend.
 \end{abstract}
 
 %%
@@ -186,10 +188,10 @@
 
 \section{Introduction}
 Passive Optical Network (PON) is widely deployed in FTTx access networks~\cite{} and in cellular (LTE, 5G) X-haul networks~\cite{}.
-Given popular use of PON, protecting user traffic confidentiality and privacy in PON is very essential.  
-However, major PON protocols standardized by ITU-T and IEEE support only payload encryption, not header encryption. Recent studies suggest that the resulting plaintext headers could be exploited to infer user activity.~\cite{PLI}
+Given popular deployment of PON, protecting user traffic confidentiality in PON is essential. 
+However, major PON protocols standardized by ITU-T and IEEE support only payload encryption, not header encryption. Recent studies suggest that the resulting plaintext headers can be exploited to infer user activity~\cite{PLI}.
 
-In this paper, We propose \textbf{SecurePON}, a security-enhanced PON architecture where header fields are properly encrypted to prevent an adversary from inferring user activity.
+In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture where header fields are properly encrypted to prevent an adversary from inferring user activity.
 \section{Background}
 
 \subsection{PON Topology}
@@ -267,7 +269,6 @@ length, and a 12-bit Port-ID that  identifies ONU.
 
 The header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there's no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON.
 
-\textbf{Attacker’s goal.}
 
 
 
