@@ -141,10 +141,7 @@
 %% The abstract is a short summary of the work to be presented in the
 %% article.
 \begin{abstract}
-  Passive Optical Network (PON) is a  optical link which is primarily deployed at X-haul.
-  In this paper, We suggest a Secured Architecture for PON which ensures protecting user's privacy.
-
-  Passive Optical Network (PON) is widely deployed in FTTx access and cellular (LTE/5G) X-haul networks. Because downstream traffic is broadcast to every ONU sharing the same splitter, any device on the splitter can passively observe all downstream signals. Major PON standards from ITU-T and IEEE encrypt only the payload, leaving the frame header---including the payload length indicator (PLI) and Port-ID---in plaintext. Recent work has shown that these plaintext fields alone suffice to infer encrypted user activity. This paper propose \textbf{SecurePON}, a security-enhanced PON architecture that encrypts header fields while preserving the framing and multiplexing functions on which ONUs depend.
+ Passive Optical Network (PON) is a widely deployed fiber access technology. While major PON standards from ITU-T and IEEE encrypt the payload, frame headers are still plaintext, and recent work has shown that header fields such as the payload length indicator (PLI) can be exploited to infer encrypted user activity. This paper propose \textbf{SecurePON}, 
 \end{abstract}
 
 %%
@@ -191,6 +188,7 @@ Passive Optical Network (PON) is widely deployed in FTTx access networks~\cite{}
 Given popular deployment of PON, protecting user traffic confidentiality in PON is essential. 
 However, major PON protocols standardized by ITU-T and IEEE support only payload encryption, not header encryption. Recent studies suggest that the resulting plaintext headers can be exploited to infer user activity~\cite{PLI}.
 
+
 In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture where header fields are properly encrypted to prevent an adversary from inferring user activity.
 \section{Background}
 
@@ -199,7 +197,7 @@ In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architectu
 In a major PON architecture, an Optical Line Terminal (OLT), which is located at the Central Office (CO), broadcasts traffic to multiple Optical Network Units/Optical Network Terminals (ONU/ONT) through a passive splitter. ~\cite{novelapon}
 
 \subsection{Characteristics of PON}
-
+Because downstream traffic is broadcast on the splitter, any ONUs/ONTs on the splitter can passively observe other's traffic.
 
 \noindent\textbf{Downstream traffic (OLT -> ONU)} is broadcasted through a passive spiltter
 
