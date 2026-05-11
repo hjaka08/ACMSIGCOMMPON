@@ -194,7 +194,7 @@ In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architectu
 
 \subsection{PON Topology}
 
-In a major PON architecture, there is an Optical Line Terminal (OLT), which is located at the Central Office (CO), and there are  broadcasts traffic to multiple Optical Network Units/Optical Network Terminals (ONU/ONT) through a passive splitter. ~\cite{novelapon} Because downstream traffic is broadcast on the splitter, any ONUs/ONTs on the splitter can passively observe other's traffic.
+In a major PON architecture~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}, an Optical Line Terminal (OLT), located at the Central Office (C.O.), is connected to multiple Optical Network Units/Optical Network Terminals (ONUs/ONTs) through a passive splitter. ONU and ONT is basically same; ONU typically installed at enterprise, MDU to serve FTTB,FTTN Serivce while ONT is ttpically installed at home\textbf{Downstream Traffic (OLT $\rightarrow$ ONU/ONT)} is broadcast over the passive splitter. \textbf{Upstream Traffic (ONU/ONT $\rightarrow$ OLT)} is time-slot based, where each ONU/ONT transmits in its assigned time slot~\cite{novelapon}. Because downstream traffic is broadcast through the splitter, any ONU/ONT attached to the same splitter can passively observe traffic destined for other ONUs/ONTs.
 
 
 
