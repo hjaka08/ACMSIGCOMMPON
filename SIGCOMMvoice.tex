@@ -219,7 +219,8 @@ Current PON specifications from ITU-T and IEEE primarily focused on payload conf
 \begin{table}[H]
   \centering
   \footnotesize
-  \begin{tabularx}{\linewidth}{11 *{3}{>{\centering\arraybackslash}X}}
+%  \begin{tabularx}{\linewidth}{11 *{3}{>{\centering\arraybackslash}X}}
+  \begin{tabular}{@{}llccc@{}}
     \toprule
     \textbf{Vendor} & \textbf{Name}
       & \makecell{\textbf{Encapsulation}\\\textbf{Method}}
@@ -235,8 +236,8 @@ Current PON specifications from ITU-T and IEEE primarily focused on payload conf
     IEEE  & 10G-EPON          & Ethernet & \cmark & \xmark \\
     IEEE  & 25G/50G-EPON      & Ethernet & \cmark & \xmark \\
     \bottomrule
-  \end{tabularx}
-  \caption{Encryption support in Major PON Standards ~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}}
+  \end{tabular}
+  \caption{Encryption support in Major PON Standards~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}  (\cmark: Support, \xmark: Not Support)}
   %\caption{Payload and Header Encryption Support in Major PON Standards}
   \label{tab:Encryption-PON}
 \end{table}
@@ -259,6 +260,7 @@ Current PON specifications from ITU-T and IEEE primarily focused on payload conf
 %%%%PON 헤더 비교 표 작성
 \noindent\textbf{Attacker's capabilities.} We consider an adversary that uses a modified ONU or a commercial PON capture device~\cite{} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim.
 
+\smallskip
 \noindent\textbf{Header.}
 The three encapsulation methods (GEM, XGEM, Ethernet) expose different fields in plaintext to an adversary 
 sharing the splitter. 
@@ -268,6 +270,7 @@ sharing the splitter.
 
 Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
 
+\smallskip
 \noindent\textbf{Attacker's goal.} The adversary’s goal is to infer the victim's traffic activity from these plaintext fields. Recent work~\cite{PLI} suggest that the PLI can be exploited to 
 infer encrypted streaming traffic on GPON. Beyond per frame length inference, the identifier (Port-ID or LLID) remains constant for the lifetime of a logical connection, allowing the adversary to correlate observations across time and build per-ONU traffic dataset for long-term tracking. Concealing this identifier is the mainn focus of SecurePON.
 
