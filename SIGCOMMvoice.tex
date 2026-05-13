@@ -258,7 +258,6 @@ Current PON specifications from ITU-T and IEEE primarily focused on payload conf
 %  \end{tabularx}
 
 %%%%PON 헤더 비교 표 작성
-\noindent\textbf{Attacker's capabilities.} We consider an adversary that uses a modified ONU~\cite{ituthreat} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim.
 
 \smallskip
 \noindent\textbf{Header.}
@@ -269,6 +268,10 @@ sharing the splitter.
 \textbf{Ethernet} has the 16-bit Length/Type field that reveals payload length when in length-mode, and the 15-bit LLID identifies the ONU.
 
 Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
+
+\noindent\textbf{Attacker's capabilities.} We consider an adversary that uses a modified ONU~\cite{ituthreat} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim.
+
+
 
 \smallskip
 \noindent\textbf{Attacker's goal.} The adversary’s goal is to infer the victim's traffic activity from these plaintext fields. Recent work~\cite{PLI} suggest that the PLI can be exploited to 
