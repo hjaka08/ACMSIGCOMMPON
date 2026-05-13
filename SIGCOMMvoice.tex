@@ -267,9 +267,10 @@ sharing the splitter.
 \textbf{XGEM} carries a 14-bit PLI that reveals payload length , and a 16-bit Port-ID that identifies the ONU. 
 \textbf{Ethernet} has the 16-bit Length/Type field that reveals payload length when in length-mode, and the 15-bit LLID identifies the ONU.
 
-Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
 
-\noindent\textbf{Attacker's capabilities.} We consider an adversary that uses a modified ONU~\cite{ituthreat} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim.
+%Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
+
+\noindent\textbf{Attacker's capabilities.} We consider an adversary that uses a modified ONU~\cite{ituthreat} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim~\cite{PLI}.
 
 
 
@@ -279,6 +280,8 @@ infer encrypted streaming traffic on GPON. Beyond per frame length inference, th
 
 
 \section{Challenges}
+To realize SecurePON, we modify the NG-PON2~\cite{itu-NGPON2} by concealing the XGEM Port-ID.
+
 Encrypting the header requires resolving the following challenges: (i) Payload Length Indicator helps ONU delineate (ii) Port-ID is used for mapping ONU/ONTs.
 
 \section{Proposed Architecture}
