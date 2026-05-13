@@ -277,7 +277,12 @@ sharing the splitter.
 \noindent\textbf{Privacy Threat.} Recent work~\cite{PLI} show that the PLI can be exploited to 
 infer encrypted streaming traffic on GPON. Beyond per frame length inference, the Port-ID remains constant for the lifetime of a logical connection, allowing the adversary to correlate observations across time and build per-ONU traffic dataset for long-term tracking. Concealing this identifier is the mainn focus of SecurePON.
 
-
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{fig/threatarc.png}
+  \caption{Threat architecture.}
+  \label{fig:threat-model}
+\end{figure}
 
 
 \section{Challenges}
@@ -286,7 +291,8 @@ To realize SecurePON, we modify the NG-PON2~\cite{itu-NGPON2} by concealing the 
 Encrypting the header requires resolving the following challenges: (i) Payload Length Indicator helps ONU delineate (ii) Port-ID is used for mapping ONU/ONTs.
 
 \section{Proposed Architecture}
-
+\smallskip
+\noindent\textbf{Design goal.}
 
 \section{Conclusion}
 We proposed \textbf{SecurePON}, a security-enhanced PON architecture that randomizes the XGEM Port-ID to prevent passive.... By extending the Higher Speed PON Architecture by ITU-T framing sublayer, SecurePON aims to remain compatible with existing PON deployments. As future work, 
