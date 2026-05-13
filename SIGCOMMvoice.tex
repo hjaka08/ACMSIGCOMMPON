@@ -141,7 +141,7 @@
 %% The abstract is a short summary of the work to be presented in the
 %% article.
 \begin{abstract}
- Passive Optical Network (PON) is a widely deployed fiber access technology. While major PON standards from ITU-T and IEEE encrypt the payload, frame headers are still plaintext, and recent work has shown that header fields such as the payload length indicator (PLI) can be exploited to infer encrypted user activity. This paper propose \textbf{SecurePON}, 
+ Passive Optical Network (PON) is a widely deployed fiber access technology. While major PON standards from ITU-T encrypt the payload, frame headers are still plaintext, and recent work has shown that header fields such as the payload length indicator (PLI) can be exploited to infer encrypted user activity. This paper propose \textbf{SecurePON}, 
 \end{abstract}
 
 %%
@@ -186,7 +186,7 @@
 \section{Introduction}
 Passive Optical Network (PON) is widely deployed in FTTx access networks~\cite{} and in cellular (LTE, 5G) X-haul networks~\cite{}.
 Given popular deployment of PON, protecting user traffic confidentiality in PON is essential. 
-However, major PON protocols standardized by ITU-T and IEEE support only payload encryption, not header encryption. Recent studies suggest that the resulting plaintext headers can be exploited to infer user activity~\cite{PLI}.
+However, major PON protocols standardized by ITU-T support only payload encryption, not header encryption. Recent studies suggest that the resulting plaintext headers can be exploited to infer user activity~\cite{PLI}.
 
 
 In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture based on NG-PON2~\cite{itu-NGPON2}. SecurePON randomizes the XGEM Port-ID to prevent an adversary on the splitter from tracking per-ONU traffic.
@@ -205,14 +205,15 @@ In a major PON architecture~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-
 Because downstream traffic is broadcast through the splitter, an ONU/ONT can passively observe traffic destined for any ONU/ONT sharing the same splitter.
 
 \subsection{PON Frame Structure}
-Major PON standards by ITU-T and IEEE take two different approaches to carrying user traffic. GPON uses GPON Encapsulation Method (GEM), and XG-PON, XGS-PON, NG-PON2, and Higher Speed PON 
-use XG-PON Encapsulation Method (XGEM), both of which carry user Ethernet frames as their payload~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}. In contrast, EPON, 10G-EPON, and 25G/50G-EPON transmit user Ethernet frames themselves.
+Major PON standards by ITU-T take two different approaches to carrying user traffic. GPON uses GPON Encapsulation Method (GEM), and XG-PON, XGS-PON, NG-PON2, and Higher Speed PON 
+use XG-PON Encapsulation Method (XGEM), both of which carry user Ethernet frames as their payload~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}.
 
 
 
 
 \section{Potential Threats in PON}
-Current PON specifications from ITU-T~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON} only define a threat model that addresses only GEM/XGEM payload confidentiality~\cite{ituthreat}: payload encryption is supported but header encryption is not supported. PON specifications from IEEE (Table~\ref{tab:Encryption-PON})
+Current PON specifications from ITU-T~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON} primarily focused on GEM/XGEM payload confidentiality. As a result, the payload is encrypted, but the header remains in plaintext. (Table~\ref{tab:Encryption-PON})
+
 
 
 
@@ -237,9 +238,6 @@ Current PON specifications from ITU-T~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-N
     ITU-T & XGS-PON           & XGEM     & \cmark & \xmark \\
     ITU-T & NG-PON2           & XGEM     & \cmark & \xmark \\
     ITU-T & Higher Speed PON  & XGEM     & \cmark & \xmark \\
-    IEEE  & EPON              & Ethernet & \cmark & \xmark \\
-    IEEE  & 10G-EPON          & Ethernet & \cmark & \xmark \\
-    IEEE  & 25G/50G-EPON      & Ethernet & \cmark & \xmark \\
     \bottomrule
   \end{tabular}
   \caption{Encryption support in Major PON Standards~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}  (\cmark: Support, \xmark: Not Support)}
@@ -256,9 +254,6 @@ Current PON specifications from ITU-T~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-N
 %    ITU-T & XGS-PON   & \centering\cmark & \centering\arraybackslash\xmark \\
 %    ITU-T & NG-PON2  & \centering\cmark & \centering\arraybackslash\xmark \\
 %    ITU-T & Higher Speed PON  & \centering\cmark & \centering\arraybackslash\xmark \\
-%    IEEE  & EPON     & \centering\cmark & \centering\arraybackslash\xmark \\
-%    IEEE  & 10G-EPON & \centering\cmark & \centering\arraybackslash\xmark \\
-%    IEEE  & AAAAA    & \centering\cmark & \centering\arraybackslash\xmark \\
 %    \bottomrule
 %  \end{tabularx}
 
@@ -270,7 +265,6 @@ The three encapsulation methods (GEM, XGEM, Ethernet) expose different fields in
 sharing the splitter. 
 \textbf{GEM} carries a 12-bit PLI that reveals payload length, and a 12-bit Port-ID that identifies the ONU. 
 \textbf{XGEM} carries a 14-bit PLI that reveals payload length , and a 16-bit Port-ID that identifies the ONU. 
-\textbf{Ethernet} has the 16-bit Length/Type field that reveals payload length when in length-mode, and the 15-bit LLID identifies the ONU.
 
 
 %Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
