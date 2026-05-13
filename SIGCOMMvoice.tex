@@ -212,7 +212,7 @@ use XG-PON Encapsulation Method (XGEM), both of which carry user Ethernet frames
 
 
 \section{Potential Threats in PON}
-Current PON specifications from ITU-T and IEEE primarily focused on payload confidentiality. As a result, the payload is encrypted, but the header remains in plaintext. (Table~\ref{tab:Encryption-PON})
+Current PON specifications from ITU-T and IEEE primarily focused on payload confidentiality. As a result, the payload encryption is supported, but the header encryption is not suppotred. (Table~\ref{tab:Encryption-PON})
 
 %Sample 표
 
@@ -273,12 +273,12 @@ sharing the splitter.
 
 %Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
 
-\noindent\textbf{Attacker's capabilities.} We consider an adversary that uses a modified ONU~\cite{ituthreat} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim~\cite{PLI}.
+\noindent\textbf{Threat Model.} We consider an adversary that uses a modified ONU~\cite{ituthreat} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim~\cite{PLI}.
 
 
 
 \smallskip
-\noindent\textbf{Attacker's goal.} The adversary’s goal is to infer the victim's traffic activity from these plaintext fields. Recent work~\cite{PLI} suggest that the PLI can be exploited to 
+\noindent\textbf{Privacy Threat.} Recent work~\cite{PLI} suggest that the PLI can be exploited to 
 infer encrypted streaming traffic on GPON. Beyond per frame length inference, the identifier (Port-ID or LLID) remains constant for the lifetime of a logical connection, allowing the adversary to correlate observations across time and build per-ONU traffic dataset for long-term tracking. Concealing this identifier is the mainn focus of SecurePON.
 
 
