@@ -275,13 +275,7 @@ sharing the splitter.
 
 \smallskip
 \noindent\textbf{Privacy Threat.} Recent work~\cite{PLI} show that the PLI can be exploited to 
-infer encrypted streaming traffic on GPON. Beyond per frame length inference, the Port-ID remains constant for the lifetime of a logical connection, allowing the adversary to correlate observations across time and build per-ONU traffic dataset for long-term tracking. The same architectual vulnerability 
-exists in XG-PON, XGS-PON, NG-PON2, and Higher Speed 
-PON~\cite{itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}: their 
-XGEM framing header carries an even wider plaintext PLI (14 bits) 
-and Port-ID (16 bits) in front of an encrypted payload. The 
-demonstrated attack therefore applies directly, with a wider 
-attack surface than GPON.Concealing this identifier is the mainn focus of SecurePON.
+infer encrypted streaming traffic on GPON. Beyond per frame length inference, the Port-ID remains constant for the lifetime of a logical connection, allowing the adversary to correlate observations across time and build per-ONU traffic dataset for long-term tracking. The same architectual vulnerability is true in XG-PON, XGS-PON, NG-PON2, and Higher Speed PON~\cite{itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}: their XGEM framing header carries (header 내용 추가). Concealing the identifier is the main focus of SecurePON.
 
 \begin{figure}[H]
   \centering
@@ -301,7 +295,7 @@ Encrypting the header requires resolving the following challenges: (i) Payload L
 \noindent\textbf{Design goal.}
 
 \section{Conclusion}
-We proposed \textbf{SecurePON}, a security-enhanced PON architecture that randomizes the XGEM Port-ID to prevent passive.... By extending the Higher Speed PON Architecture by ITU-T framing sublayer, SecurePON aims to remain compatible with existing PON deployments. As future work, 
+We proposed \textbf{SecurePON}, a security-enhanced PON architecture that randomizes the XGEM Port-ID to prevent passive (A). By extending the NG-PON2, Higher Speed PON XGEM Architecture by ITU-T framing sublayer, SecurePON aims to remain compatible with existing PON deployments. As future work, 
 
 
 
