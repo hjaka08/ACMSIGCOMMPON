@@ -205,7 +205,7 @@ In a major PON architecture~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-
 Because downstream traffic is broadcast through the splitter, an ONU/ONT can passively observe traffic destined for any ONU/ONT sharing the same splitter.
 
 \subsection{PON Frame Structure}
-Major PON standards by ITU-T take two different approaches to carrying user traffic. GPON uses GPON Encapsulation Method (GEM), and XG-PON, XGS-PON, NG-PON2, and Higher Speed PON 
+Major PON standards by ITU-T carry user traffic by two encapsulation methods. GPON uses GPON Encapsulation Method (GEM), and XG-PON, XGS-PON, NG-PON2, and Higher Speed PON 
 use XG-PON Encapsulation Method (XGEM), both of which carry user Ethernet frames as their payload~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}.
 
 
@@ -261,7 +261,7 @@ Current PON specifications from ITU-T~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-N
 
 \smallskip
 \noindent\textbf{Header.}
-The three encapsulation methods (GEM, XGEM, Ethernet) expose different fields in plaintext to an adversary 
+The three encapsulation methods (GEM, XGEM) expose different fields in plaintext to an adversary 
 sharing the splitter. 
 \textbf{GEM} carries a 12-bit PLI that reveals payload length, and a 12-bit Port-ID that identifies the ONU. 
 \textbf{XGEM} carries a 14-bit PLI that reveals payload length , and a 16-bit Port-ID that identifies the ONU. 
@@ -275,7 +275,7 @@ sharing the splitter.
 
 \smallskip
 \noindent\textbf{Privacy Threat.} Recent work~\cite{PLI} suggest that the PLI can be exploited to 
-infer encrypted streaming traffic on GPON. Beyond per frame length inference, the identifier (Port-ID or LLID) remains constant for the lifetime of a logical connection, allowing the adversary to correlate observations across time and build per-ONU traffic dataset for long-term tracking. Concealing this identifier is the mainn focus of SecurePON.
+infer encrypted streaming traffic on GPON. Beyond per frame length inference, the Port-ID remains constant for the lifetime of a logical connection, allowing the adversary to correlate observations across time and build per-ONU traffic dataset for long-term tracking. Concealing this identifier is the mainn focus of SecurePON.
 
 
 \section{Challenges}
