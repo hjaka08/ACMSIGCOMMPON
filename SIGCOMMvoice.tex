@@ -205,16 +205,15 @@ In a major PON architecture~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-
 Because downstream traffic is broadcast through the splitter, an ONU/ONT can passively observe traffic destined for any ONU/ONT sharing the same splitter.
 
 \subsection{PON Frame Structure}
-Each PON encapsulation 
+Major PON standards by ITU-T and IEEE take two different approaches to carrying user traffic. 
+The ITU-T family encapsulates user Ethernet frames inside GEM or XGEM, whereas the IEEE transmits user Ethernet frames natively.
 
-\textbf{GEM} (G-PON)~\cite{itu-g9843} and \textbf{XGEM} (XG-PON, XGS-PON, NG-PON2, Higher Speed PON)~\cite{itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON} use a fixed 5- and 8-byte framing header, respectively. Both contain a \textbf{Payload Length Indicator (PLI)} for frame delineation and a \textbf{Port-ID} that identifies the ONU.
+\textbf{GEM} (G-PON)~\cite{itu-g9843} 
+
+\textbf{XGEM} (XG-PON, XGS-PON, NG-PON2, Higher Speed PON)~\cite{itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON} 
 
 
-\textbf{Ethernet} (EPON family)~\cite{ieee8023ah,ieee8023av} 
-splits the framing role between the modified preamble---which 
-carries a 15-bit \textbf{Logical Link Identifier (LLID)} 
-serving the same role as the Port-ID---and the 14-byte MAC 
-header. The encrypted user data follows the MAC header.
+\textbf{Ethernet} 
 
 
 
