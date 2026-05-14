@@ -290,10 +290,11 @@ To realize SecurePON, we modify the NG-PON2~\cite{itu-NGPON2} to conceal the XGE
 
 \smallskip
 \noindent\textbf{C1: PLI helps ONU delineate.} 
-The Payload Length Indicator (PLI) tells the ONU where the XGEM frames ends within the XGTC payload.~\cite[\S 9.2 XGEM frame delineation]{itu-NGPON2}.
+The Payload Length Indicator (PLI) tells the ONU where the XGEM frames ends within the XGTC payload~\cite[\S 9.2 XGEM frame delineation]{itu-NGPON2}. Encrypting the PLI prevents ONUs from delineating frame boundaries.
 
 \smallskip
 \noindent\textbf{C2: Port-ID is used for mapping ONU/ONT link.} 
+Each ONU filters the downstream XGEM frame by matching Port-ID assigned. Encrypting Port-ID field prevents ONUs from recognizing their own frame.
 
 
 
