@@ -286,15 +286,15 @@ infer encrypted streaming traffic on GPON. Beyond per frame length inference, th
 
 
 \section{Challenges}
-To realize SecurePON, we modify the NG-PON2~\cite{itu-NGPON2} to conceal the XGEM Headers. Concealing Headers requires addressing the following two technical challenges:
+To realize SecurePON, we modify NG-PON2~\cite{itu-NGPON2} to conceal the XGEM header. Concealing the header requires addressing the following two technical challenges:
 
 \smallskip
-\noindent\textbf{C1: PLI helps ONU delineate.} 
-The Payload Length Indicator (PLI) tells the ONU where the XGEM frames ends within the XGTC payload~\cite[\S 9.2 XGEM frame delineation]{itu-NGPON2}. Encrypting the PLI prevents ONUs from delineating frame boundaries.
+\noindent\textbf{C1: PLI helps ONU delineate frames.} 
+The Payload Length Indicator (PLI) tells the ONU where each XGEM frames ends within the XGTC payload~\cite[\S 9.2 XGEM frame delineation]{itu-NGPON2}. Encrypting the PLI prevents ONUs from delineating frame boundaries.
 
 \smallskip
 \noindent\textbf{C2: Port-ID is used for mapping ONU/ONT link.} 
-Each ONU filters the downstream XGEM frame by matching Port-ID assigned. Encrypting Port-ID field prevents ONUs from recognizing their own frame.
+Each ONU filters the downstream XGEM frame by matching Port-ID assigned. Encrypting Port-ID field prevents ONUs from recognizing their own frames.
 
 
 
