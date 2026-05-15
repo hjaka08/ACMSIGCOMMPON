@@ -204,6 +204,10 @@ In a major PON architecture~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-
 
 Because downstream traffic is broadcast through the splitter, an ONU/ONT can passively observe traffic destined for any ONU/ONT sharing the same splitter.
 
+In TWDM based PON, this observation is limited to the wavelength channel.
+
+
+
 \subsection{PON Frame Structure}
 Major PON standards by ITU-T carry user traffic using two encapsulation methods. GPON uses GPON Encapsulation Method (GEM), and XG-PON, XGS-PON, NG-PON2, and Higher Speed PON 
 use XG-PON Encapsulation Method (XGEM), both of which carry user Ethernet frames as their payload~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}.
@@ -271,7 +275,7 @@ sharing the splitter.
 
 %Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
 
-\noindent\textbf{Threat Model.} We consider an adversary that uses a modified ONU~\cite[\S Section 12.1: Basic threat model]{itu-g9843} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim~\cite{PLI}. For TWDM Mode, the attacker is assumed to observe the victim’s active downstream wavelength channel.
+\noindent\textbf{Threat Model.} We consider an adversary that uses a modified ONU~\cite[\S Section 12.1: Basic threat model]{itu-g9843} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim~\cite{PLI}.For TWDM Mode, we assume that the adversary can capture the victim's active downstream wavelength channel.
 
 
 
