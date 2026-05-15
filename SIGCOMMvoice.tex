@@ -274,7 +274,7 @@ sharing the splitter.
 
 %Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
 
-\noindent\textbf{Threat Model.} We consider an adversary that uses a modified ONU~\cite[\S Section 12.1: Basic threat model]{itu-g9843} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim~\cite{PLI}.For TWDM Mode, we assume that the adversary can capture the victim's active downstream wavelength channel.
+\noindent\textbf{Threat Model.} We consider an adversary that uses a modified ONU~\cite[\S Section 12.1: Basic threat model, \S15.1]{itu-g9843,itu-50GPON} or a commercial PON capture device~\cite{MT2} attached to the victim's splitter. The adversary does not need to install an in-line optical tap or access infrastructure. The adversary simply receives the same downstream optical signals broadcast to the victim~\cite{PLI}.For TWDM Mode, we assume that the adversary can capture the victim's active downstream wavelength channel.
 
 
 
@@ -306,8 +306,9 @@ Each ONU filters the downstream XGEM frame by matching Port-ID assigned. Encrypt
 \section{Proposed Architecture}
 \smallskip
 \noindent\textbf{Design Goals.}
-SecurePON aims to prevent traffic infering per ONU, introduce no new protocol beyond what HSP now supports.
-To address C1 and C2, 
+SecurePON periodically rotates the user-data XGEM Port-ID assigned to each ONU. Rotation commands are delivered via the OMCI channel~\cite{itu-50GPON} as an encrypted XGEM payload over the OMCC.
+
+\noindent\textbf{Scope.} SecurePON targets the downstream broadcast channel, which is the side accessible to a splitter sharing adversary~\cite[\S15.1]{itu-50GPON}. Upstream bursts are TDMA-isolated by the directional nature of the ODN~\cite[\S15.1]{itu-50GPON} and are not rotated.
 
 \section{Conclusion}
 We proposed \textbf{SecurePON}, a security-enhanced PON architecture that periodically rotates the XGEM Port-ID via OMCI and burst cover traffic on expired Port-IDs to prevent passive per-ONU PLI sequence collection at the splitter. By reusing functions already defined in Higher Speed PON~\cite{itu-50GPON}, \textbf{SecurePON} remains compatible with existing deployments. As future work, 
