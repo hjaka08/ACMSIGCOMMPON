@@ -189,7 +189,7 @@ Given popular deployment of PON, protecting user traffic confidentiality in PON 
 However, major PON protocols standardized by ITU-T support only payload encryption, not header encryption. Recent work has shown that the resulting plaintext headers can be exploited to infer user activity~\cite{PLI}.
 
 
-In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture based on NG-PON2~\cite{itu-NGPON2}. SecurePON conceals the XGEM Port-ID to prevent an adversary on the splitter from tracking per-ONU traffic.
+In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture based on Higher Speed PON~\cite{itu-50GPON}. SecurePON conceals the XGEM Port-ID to prevent an adversary on the splitter from tracking per-ONU traffic.
 
 \section{Background}
 
@@ -207,7 +207,9 @@ Because downstream traffic is broadcast through the splitter, an ONU/ONT can pas
 \subsection{PON Frame Structure}
 Major PON standards by ITU-T carry user traffic using two encapsulation methods. GPON uses GPON Encapsulation Method (GEM), and XG-PON, XGS-PON, NG-PON2, and Higher Speed PON 
 use XG-PON Encapsulation Method (XGEM), both of which carry user Ethernet frames as their payload~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}.
-At the Transmission Convergence (TC) layer, multiple GEM/XGEM frames are then carried in the payload section of TC layer frames, such as GPON/XG-PON Transmission Convergence (GTC/XGTC) or framing sublayer (FS) frames for transmission over the optical medium.
+
+At the Transmission Convergence (TC) layer, multiple GEM/XGEM frames are then carried in the payload section of TC-layer frames, such as GTC frames in GPON, XGTC frames in XG-PON, and framing sublayer (FS) frames in NG-PON2 and Higher Speed PON.
+
 
 
 
@@ -286,7 +288,7 @@ infer encrypted streaming traffic on GPON. Beyond per frame length inference, th
 
 
 \section{Challenges}
-To realize SecurePON, we modify NG-PON2~\cite{itu-NGPON2} to conceal the XGEM header. Concealing the header requires addressing the following two technical challenges:
+To realize SecurePON, we modify Higher Speed PON~\cite{itu-50GPON} to conceal the XGEM header. Concealing the header requires addressing the following two technical challenges:
 
 \smallskip
 \noindent\textbf{C1: PLI helps ONU delineate frames.} 
@@ -301,11 +303,11 @@ Each ONU filters the downstream XGEM frame by matching Port-ID assigned. Encrypt
 \section{Proposed Architecture}
 \smallskip
 \noindent\textbf{Design Goals.}
-SecurePON aims to prevent traffic infering per ONU, introduce no new protocol beyond what NG-PON2 now supports.
+SecurePON aims to prevent traffic infering per ONU, introduce no new protocol beyond what Higher Speed PON now supports.
 To address C1 and C2, 
 
 \section{Conclusion}
-We proposed \textbf{SecurePON}, a security-enhanced PON architecture that randomizes the XGEM Port-ID to prevent passive (A). By extending the NG-PON2, Higher Speed PON XGEM Architecture by ITU-T framing sublayer, SecurePON aims to remain compatible with existing PON deployments. As future work, 
+We proposed \textbf{SecurePON}, a security-enhanced PON architecture that randomizes the XGEM Port-ID to prevent passive (A). By extending the Higher Speed PON XGEM Architecture by ITU-T framing sublayer, SecurePON aims to remain compatible with existing PON deployments. As future work, 
 
 
 
