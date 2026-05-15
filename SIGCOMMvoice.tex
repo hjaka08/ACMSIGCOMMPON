@@ -308,7 +308,10 @@ Each ONU filters the downstream XGEM frame by matching Port-ID assigned. Encrypt
 \noindent\textbf{Design Goals.}
 SecurePON periodically rotates the user-data XGEM Port-ID assigned to each ONU. Rotation commands are delivered via the OMCI channel~\cite{itu-50GPON} as an encrypted XGEM payload over the OMCC.
 
-\noindent\textbf{Scope.} SecurePON targets the downstream broadcast channel, which is the side accessible to a splitter sharing adversary~\cite[\S15.1]{itu-50GPON}. Upstream bursts are TDMA-isolated by the directional nature of the ODN~\cite[\S15.1]{itu-50GPON} and are not rotated.
+\noindent\textbf{Scope.} SecurePON targets the downstream broadcast channel, which is the side accessible to a splitter sharing adversary~\cite[\S15.1]{itu-50GPON}. Upstream bursts are isolated by the directional nature of the ODN~\cite[\S12.1]{itu-g9843}.
+
+\noindent\textbf{Limitations.} Typical PON deployments with split ratios of 1:32 to 1:128 offer a
+sufficiently large set to defeat temporal re-linking. In contrast, on a small splitter with only a handful of ONUs (e.g., a 1:2 PON), the anonymity set is too small and Port-ID rotation provides marginal benefit. \textbf{SecurePON} therefore targets deployments of residential PON access (e.g., PON for MDU, Apartments).
 
 \section{Conclusion}
 We proposed \textbf{SecurePON}, a security-enhanced PON architecture that periodically rotates the XGEM Port-ID via OMCI and burst cover traffic on expired Port-IDs to prevent passive per-ONU PLI sequence collection at the splitter. By reusing functions already defined in Higher Speed PON~\cite{itu-50GPON}, \textbf{SecurePON} remains compatible with existing deployments. As future work, 
