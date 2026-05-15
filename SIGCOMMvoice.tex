@@ -230,7 +230,7 @@ Current PON specifications from ITU-T~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-N
 %  \begin{tabularx}{\linewidth}{11 *{3}{>{\centering\arraybackslash}X}}
   \begin{tabular}{@{}llccc@{}}
     \toprule
-    \textbf{Vendor} & \textbf{Name}
+    \textbf{SDO} & \textbf{Name}
       & \makecell{\textbf{Encapsulation}\\\textbf{Method}}
       & \makecell{\textbf{Payload}\\\textbf{Encryption}}
       & \makecell{\textbf{Header}\\\textbf{Encryption}} \\
@@ -265,8 +265,8 @@ Current PON specifications from ITU-T~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-N
 \noindent\textbf{Header.}
 The two encapsulation methods (GEM, XGEM) expose different fields in plaintext to an adversary 
 sharing the splitter. 
-\textbf{GEM} carries a 12-bit PLI that reveals payload length, and a 12-bit Port-ID that identifies the ONU. 
-\textbf{XGEM} carries a 14-bit PLI that reveals payload length , and a 16-bit Port-ID that identifies the ONU. 
+\textbf{GEM} carries a 12-bit PLI that reveals payload length, and a 12-bit Port-ID that identifies the logical connection.. 
+\textbf{XGEM} carries a 14-bit PLI that reveals payload length , and a 16-bit Port-ID that identifies the logical connection.. 
 
 
 %Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
@@ -292,7 +292,7 @@ To realize SecurePON, we modify Higher Speed PON~\cite{itu-50GPON} to conceal th
 
 \smallskip
 \noindent\textbf{C1: PLI helps ONU delineate frames.} 
-The Payload Length Indicator (PLI) tells the ONU where each XGEM frames ends within the XGTC payload~\cite[\S 9.2 XGEM frame delineation]{itu-NGPON2}. Encrypting the PLI prevents ONUs from delineating frame boundaries.
+The Payload Length Indicator (PLI) tells the ONU where each XGEM frames ends within the FS payload~\cite[\S 9.2 XGEM frame delineation]{itu-NGPON2}. Encrypting the PLI prevents ONUs from delineating frame boundaries.
 
 \smallskip
 \noindent\textbf{C2: Port-ID is used for mapping ONU/ONT's logical port.} 
