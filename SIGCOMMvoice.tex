@@ -141,7 +141,7 @@
 %% The abstract is a short summary of the work to be presented in the
 %% article.
 \begin{abstract}
- Passive Optical Network (PON) is a widely deployed fiber access technology. While major PON standards from ITU-T encrypt the payload, frame headers are still plaintext, and recent work has shown that header fields such as the payload length indicator (PLI) can be exploited to infer encrypted user activity. This paper propose \textbf{SecurePON}, 
+ Passive Optical Network (PON) is a widely deployed fiber access technology. While major PON standards from ITU-T encrypt the payload, frame headers are still plaintext, and recent work has shown that header fields such as the payload length indicator (PLI) can be exploited to infer encrypted user activity. This paper proposes \textbf{SecurePON},  a security-enhanced PON architecture that periodically rotates the XGEM Port-ID via the OMCI channel and bursts cover traffic on expired Port-IDs to prevent an adversary on the splitter from tracking per-ONU traffic.
 \end{abstract}
 
 %%
@@ -306,7 +306,9 @@ SecurePON aims to prevent traffic infering per ONU, introduce no new protocol be
 To address C1 and C2, 
 
 \section{Conclusion}
-We proposed \textbf{SecurePON}, a security-enhanced PON architecture that randomizes the XGEM Port-ID to prevent passive (A). By extending the Higher Speed PON XGEM Architecture by ITU-T framing sublayer, SecurePON aims to remain compatible with existing PON deployments. As future work, 
+We proposed \textbf{SecurePON}, a security-enhanced PON architecture that periodically rotates the XGEM Port-ID via OMCI and burst cover traffic on expired Port-IDs to prevent passive per-ONU PLI sequence collection at the splitter. By reusing functions already defined in Higher Speed PON~\cite{itu-50GPON}, \textbf{SecurePON} remains compatible with existing deployments. As future work, 
+
+that randomizes the XGEM Port-ID to prevent passive (A). By extending the Higher Speed PON XGEM Architecture by ITU-T framing sublayer, SecurePON aims to remain compatible with existing PON deployments. As future work, 
 
 
 
