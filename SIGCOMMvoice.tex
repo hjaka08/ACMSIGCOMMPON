@@ -189,7 +189,11 @@ Given popular deployment of PON, protecting user traffic confidentiality in PON 
 However, major PON protocols standardized by ITU-T support only payload encryption, not header encryption. Recent work has shown that the resulting plaintext headers can be exploited to infer user activity~\cite{PLI}.
 
 
-In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture based on Higher Speed PON (HSP)~\cite{itu-50GPON}. SecurePON conceals the XGEM Port-ID to prevent an adversary on the splitter from tracking per-ONU traffic.
+The privacy implications extend beyond per-frame inference. Because the XGEM Port-ID identifying each logical connection is typically static after provisioning, an adversary on the splitter can group PLI observations per ONU and build per-ONU traffic datasets.
+
+
+In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture based on Higher Speed PON (HSP)~\cite{itu-50GPON}. SecurePON periodically rotates the XGEM Port-ID assigned to each ONU via the OMCI channel and bursts cover traffic on expired Port-IDs to prevent an adversary on the splitter from tracking per-ONU traffic. SecurePON reuses functions already defined
+in Higher Speed PON Specifications. Therefore, It is very compatible with deployed PON infrastrcutres.
 
 \section{Background}
 
