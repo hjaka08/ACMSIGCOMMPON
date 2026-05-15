@@ -261,7 +261,7 @@ Current PON specifications from ITU-T~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-N
 
 \smallskip
 \noindent\textbf{Header.}
-The three encapsulation methods (GEM, XGEM) expose different fields in plaintext to an adversary 
+The two encapsulation methods (GEM, XGEM) expose different fields in plaintext to an adversary 
 sharing the splitter. 
 \textbf{GEM} carries a 12-bit PLI that reveals payload length, and a 12-bit Port-ID that identifies the ONU. 
 \textbf{XGEM} carries a 14-bit PLI that reveals payload length , and a 16-bit Port-ID that identifies the ONU. 
@@ -280,7 +280,7 @@ infer encrypted streaming traffic on GPON. Beyond per frame length inference, th
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{fig/threatarc.png}
-  \caption{Threat architecture.}
+  \caption{Threat Model.}
   \label{fig:threat-model}
 \end{figure}
 
