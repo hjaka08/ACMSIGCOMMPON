@@ -205,9 +205,9 @@ In a major PON architecture~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-
 Because downstream traffic is broadcast through the splitter, an ONU/ONT can passively observe traffic destined for any ONU/ONT sharing the same splitter.
 
 \subsection{PON Frame Structure}
-Major PON standards by ITU-T carry user traffic by two encapsulation methods. GPON uses GPON Encapsulation Method (GEM), and XG-PON, XGS-PON, NG-PON2, and Higher Speed PON 
+Major PON standards by ITU-T carry user traffic using two encapsulation methods. GPON uses GPON Encapsulation Method (GEM), and XG-PON, XGS-PON, NG-PON2, and Higher Speed PON 
 use XG-PON Encapsulation Method (XGEM), both of which carry user Ethernet frames as their payload~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}.
-
+Downstream GEM/XGEM frames are carried in the payload section of GTC/XGTC frames, and these TC-layer frames are then transmitted over the optical medium. Therefore, the PLI field is required for ONUs to delineate multiple GEM/XGEM frames within the GTC/XGTC payload.
 
 
 
