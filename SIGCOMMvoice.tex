@@ -323,14 +323,11 @@ After rotation, the OLT continues to transmit downstream XGEM frames carrying th
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\columnwidth]{securepon_rotation.pdf}
+\includegraphics[width=\columnwidth]{fig/Rotation.drawio.pdf}
 \caption{\textbf{SecurePON rotation on a single logical connection.}
 At the rotation epoch, the OLT migrates user traffic from Port-ID
 $X$ to Port-ID $Y$ via an encrypted OMCI message, and continues
-emitting cover XGEM frames on the retired $X$ for duration
-$\tau_{\mathrm{cover}}$. A splitter-resident adversary observes no
-abrupt termination on $X$ and cannot associate the new flow on $Y$
-with the prior flow on $X$.}
+transmitting camoflague XGEM frames on the expired $X$.}
 \label{fig:rotation}
 \end{figure}
 
