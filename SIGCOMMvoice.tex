@@ -282,12 +282,12 @@ sharing the splitter.
 \noindent\textbf{Privacy Threat.} Recent work~\cite{PLI} show that the PLI can be exploited to 
 infer encrypted streaming traffic on GPON. Beyond per frame length inference, the Port-ID remains constant for the lifetime of a logical connection, allowing the adversary to correlate observations across time and build per-ONU traffic dataset for long-term tracking. The same architectural vulnerability exists in XG-PON, XGS-PON, NG-PON2, and HSP~\cite{itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}: their XGEM framing header also carries PLI and Port-ID. Concealing the identifier is the main focus of SecurePON.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{fig/threatarc.png}
-  \caption{Threat Model.}
-  \label{fig:threat-model}
-\end{figure}
+%\begin{figure}[H]
+%  \centering
+%  \includegraphics[width=\linewidth]{fig/threatarc.png}
+%  \caption{Threat Model.}
+%  \label{fig:threat-model}
+%\end{figure}
 
 
 \section{Challenges}
@@ -323,7 +323,7 @@ After rotation, the OLT continues to transmit downstream XGEM frames carrying th
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\columnwidth]{fig/Rotation.drawio.pdf}
+\includegraphics[width=\columnwidth]{fig/Rotation.drawio (1).pdf}
 \caption{\textbf{SecurePON rotation on a single logical connection.}
 At the rotation epoch, the OLT migrates user traffic from Port-ID
 $X$ to Port-ID $Y$ via an encrypted OMCI message, and continues
