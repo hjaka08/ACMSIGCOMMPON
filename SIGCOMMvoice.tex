@@ -211,7 +211,7 @@ In a major PON architecture~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-
 \subsection{PON Frame Structure}
 Major PON standards by ITU-T carry user traffic using two encapsulation methods. GPON uses GPON Encapsulation Method (GEM), and XG-PON, XGS-PON, NG-PON2, and HSP use XG-PON Encapsulation Method (XGEM), both of which carry user Ethernet frames as their payload~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}.
 
-At the Transmission Convergence (TC) layer, multiple GEM/XGEM frames are then carried in the payload section of TC-layer frames, such as GTC frames in GPON, XGTC frames in XG-PON, and framing sublayer (FS) frames in NG-PON2, XGS-PON and HSPON.
+At the Transmission Convergence (TC) layer, multiple GEM/XGEM frames are then carried in the payload section of TC-layer frames, such as GTC frames in GPON, XGTC frames in XG-PON, and framing sublayer (FS) frames in NG-PON2, XGS-PON and HSP.
 
 Both NG-PON2 and HSP support time and wavelength division multiplexing (TWDM) mode ~\cite{itu-NGPON2,itu-50GPON} in addition to TDM mode.
 
@@ -268,8 +268,8 @@ Current PON specifications from ITU-T~\cite{itu-g9843,itu-XGPON,itu-XGSPON,itu-N
 \noindent\textbf{Header.}
 The two encapsulation methods (GEM, XGEM) expose different fields in plaintext to an adversary 
 sharing the splitter. 
-\textbf{GEM} carries a 12-bit PLI that reveals payload length, and a 12-bit Port-ID that identifies the logical connection.. 
-\textbf{XGEM} carries a 14-bit PLI that reveals payload length , and a 16-bit Port-ID that identifies the logical connection.. 
+\textbf{GEM} carries a 12-bit PLI that reveals payload length, and a 12-bit Port-ID that identifies the logical connection.
+\textbf{XGEM} carries a 14-bit PLI that reveals payload length , and a 16-bit Port-ID that identifies the logical connection.
 
 
 %Each frame's header contains payload length information. Recent studies show that such payload length information could be exploited to infer user's traffic which means an adversary who shares same splitter as victim can leak user traffic by just receiving optical signals from same splitter and there is no neccessity for an adversary to install in-line optical tap because all downstream traffic is broadcast over PON~\cite{PLI}.
@@ -307,10 +307,11 @@ Each ONU filters the downstream XGEM frame by matching Port-ID assigned. Encrypt
 \smallskip
 \noindent\textbf{Design Goals.}
 SecurePON periodically rotates the user-data XGEM Port-ID assigned to each ONU. Rotation commands are delivered via the OMCI channel~\cite{itu-50GPON} as an encrypted XGEM payload over the OMCC.
-To prevent an adversary on the splitter from linking the retired Port-ID to the new Port-ID via timing correlation, the OLT tansmits camouflage traffic on the retired Port-ID after each rotation. SecurePON addresses C1 and C2 without introducing any new PLOAM message or XGEM header field.
+To prevent an adversary on the splitter from linking the retired Port-ID to the new Port-ID via timing correlation, the OLT tansmits camouflage traffic on the retired Port-ID after each rotation. SecurePON addresses C1 and C2 without altering the existing XGEM header format.
+
 
 \noindent\textbf{Rotation procedure.} 
-At each rotation epoch, the OLT (i)selects a Port-ID $Y$ from the unassigned (unused) pool of the 16-bit Port-ID space~\cite[\S6.5.2.7, Table~6-3]{itu-50GPON}, (ii)reassigns the affected logical connection from $X$ to $Y$ via on OMCI message carried in an encrypted unicast XGEM payload~\cite[\S15.4]{itu-50GPON}, and (iii)upon OMCI ACK, begins transmitting user traffic on $Y$. The ONU updates its XGEM Port-ID filter~\cite[\S6.2.1]{itu-50GPON} to accept $Y$ and to drop frames with the expired Port-ID $X$.
+At each rotation epoch, the OLT (i)selects a Port-ID $Y$ from the unassigned (unused) pool of the 16-bit Port-ID space~\cite[\S6.5.2.7, Table~6-3]{itu-50GPON}, (ii)reassigns the affected logical connection from $X$ to $Y$ via on OMCI message carried in an encrypted unicast XGEM payload~\cite[\S15.4]{itu-50GPON}, and (iii)upon OMCI ACK, begins transmitting user traffic on $Y$. The ONU updates its XGEM Port-ID filter~\cite[\S6.3.1]{itu-50GPON} to accept $Y$ and to drop frames with the expired Port-ID $X$.
 
 
 \noindent\textbf{Camouflage traffic on expired Port-ID.}
@@ -327,7 +328,7 @@ After rotation, the OLT continues to transmit downstream XGEM frames carrying th
 \caption{\textbf{SecurePON rotation on a single logical connection.}
 At the rotation epoch, the OLT migrates user traffic from Port-ID
 $X$ to Port-ID $Y$ via an encrypted OMCI message, and continues
-transmitting camoflague XGEM frames on the expired $X$.}
+transmitting camouflage XGEM frames on the expired $X$.}
 \label{fig:rotation}
 \end{figure}
 
