@@ -322,9 +322,11 @@ After rotation, the OLT continues to transmit downstream XGEM frames carrying th
 \noindent\textbf{Limitations.} Typical PON deployments with split ratios of 1:32 to 1:128 offer a sufficiently large set to prevent the adversary from linking the expired Port-ID to the new Port-ID via timing correlation. In contrast, on a small splitter with only a few of ONUs (e.g., 1:2 PON), the anonymity set is too small and Port-ID rotation provides marginal benefit. \textbf{SecurePON} therefore targets deployments of residential PON access (e.g., PON for MDU, Apartments).
 
 \section{Conclusion}
-We proposed \textbf{SecurePON}, a security-enhanced PON architecture that periodically rotates the XGEM Port-ID via OMCI and transmit cover traffic on expired Port-IDs to prevent passive per-ONU PLI sequence collection at the splitter. By reusing functions already defined in Higher Speed PON~\cite{itu-50GPON}, \textbf{SecurePON} remains compatible with existing deployments. 
+We proposed \textbf{SecurePON}, a security-enhanced PON architecture that periodically rotates the XGEM Port-ID via OMCI and transmits cover traffic on expired Port-IDs to prevent passive per-ONU PLI sequence collection at the splitter. By reusing functions already defined in Higher Speed PON~\cite{itu-50GPON}, \textbf{SecurePON} remains compatible with existing deployments. 
 
-As future work, we would like to validate our architecture on Commercial OLT and ONU in Real-World.
+As future work, we would like to validate our architecture on FPGA-based PON prototypes, and extend the design to TWDM deployments.
+
+
 
 
 
