@@ -279,7 +279,7 @@ sharing the splitter.
 
 
 \smallskip
-\noindent\textbf{Privacy Threat.} Recent work~\cite{PLI} show that the PLI can be exploited to 
+\noindent\textbf{Privacy Threat.} Recent work~\cite{PLI} shows that the PLI can be exploited to 
 infer encrypted streaming traffic on GPON. Beyond per frame length inference, the Port-ID remains constant for the lifetime of a logical connection, allowing the adversary to correlate observations across time and build per-ONU traffic dataset for long-term tracking. The same architectural vulnerability exists in XG-PON, XGS-PON, NG-PON2, and HSP~\cite{itu-XGPON,itu-XGSPON,itu-NGPON2,itu-50GPON}: their XGEM framing header also carries PLI and Port-ID. Concealing the identifier is the main focus of SecurePON.
 
 %\begin{figure}[H]
@@ -307,7 +307,7 @@ Each ONU filters the downstream XGEM frame by matching Port-ID assigned. Encrypt
 \smallskip
 \noindent\textbf{Design Goals.}
 SecurePON periodically rotates the user-data XGEM Port-ID assigned to each ONU. Rotation commands are delivered via the OMCI channel~\cite{itu-50GPON} as an encrypted XGEM payload over the OMCC.
-To prevent an adversary on the splitter from linking the retired Port-ID to the new Port-ID via timing correlation, the OLT tansmits camouflage traffic on the retired Port-ID after each rotation. SecurePON addresses C1 and C2 without altering the existing XGEM header format.
+To prevent an adversary on the splitter from linking the retired Port-ID to the new Port-ID via timing correlation, the OLT transmits camouflage traffic on the retired Port-ID after each rotation. SecurePON addresses C1 and C2 without altering the existing XGEM header format.
 
 
 \noindent\textbf{Rotation procedure.} 
