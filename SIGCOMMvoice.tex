@@ -314,7 +314,7 @@ At each rotation epoch, the OLT (i)selects a Port-ID $Y$ from the unassigned (un
 
 
 \noindent\textbf{Camouflage traffic on expired Port-ID.}
-
+After rotation, the OLT continues to burst downstream XGEM frames bearing the expired Port-ID $X$ for a cover duration $\tau_{\mathrm{cover}} \geq \tau_{\mathrm{rotation}}$. Cover frames carry encrypted random padding as their payload. Consequently, the adversary observes neither an abrupt termination of traffic on $X$ nor a statistical discontinuity at the rotation boundary, defeating temporal stitching of $X$ and $Y$ into a single per-ONU PLI sequence.
 
 \noindent\textbf{Scope.} SecurePON targets the downstream broadcast channel, which is the side accessible to a splitter sharing adversary~\cite[\S15.1]{itu-50GPON}. Upstream bursts are isolated by the directional nature of the ODN~\cite[\S12.1]{itu-g9843}.
 
