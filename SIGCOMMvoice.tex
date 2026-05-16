@@ -192,7 +192,7 @@ However, major PON protocols standardized by ITU-T support only payload encrypti
 The privacy implications extend beyond per-frame inference. Because the XGEM Port-ID identifying each logical connection is typically static after provisioning, an adversary on the splitter can group PLI observations per ONU and build per-ONU traffic datasets.
 
 
-In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture based on Higher Speed PON (HSP)~\cite{itu-50GPON}. SecurePON periodically rotates the XGEM Port-ID assigned to each ONU via the OMCI channel and bursts cover traffic on expired Port-IDs to prevent an adversary on the splitter from tracking per-ONU traffic. SecurePON reuses functions already defined
+In this paper, we propose \textbf{SecurePON}, a security-enhanced PON architecture based on Higher Speed PON (HSP)~\cite{itu-50GPON}. SecurePON periodically rotates the XGEM Port-ID assigned to each ONU via the OMCI channel and transmits cover traffic on expired Port-IDs to prevent an adversary on the splitter from tracking per-ONU traffic. SecurePON reuses functions already defined
 in Higher Speed PON Specifications. Therefore, It is very compatible with deployed PON infrastrcutres.
 
 \section{Background}
@@ -307,17 +307,14 @@ Each ONU filters the downstream XGEM frame by matching Port-ID assigned. Encrypt
 \smallskip
 \noindent\textbf{Design Goals.}
 SecurePON periodically rotates the user-data XGEM Port-ID assigned to each ONU. Rotation commands are delivered via the OMCI channel~\cite{itu-50GPON} as an encrypted XGEM payload over the OMCC.
-To prevent an adversary on the splitter from linking the retired Port-ID to the new Port-ID via timing correlation, the OLT bursts camouflage traffic on the retired Port-ID after each rotation. SecurePON addresses C1 and C2 without introducing any new PLOAM message or XGEM header field.
+To prevent an adversary on the splitter from linking the retired Port-ID to the new Port-ID via timing correlation, the OLT tansmits camouflage traffic on the retired Port-ID after each rotation. SecurePON addresses C1 and C2 without introducing any new PLOAM message or XGEM header field.
 
 \noindent\textbf{Rotation procedure.} 
-At each rotation epoch, the OLT (i)selects a Port-ID $Y$ from the unassigned (unused) pool of the 16-bit Port-ID space~\cite[\S6.5.2.7, Table~6-3]{itu-50GPON}, (ii)reassigns the affected logical connection from $X$ to $Y$ via on OMCI message carried in an encrypted unicast XGEM payload~\cite[\S15.4]{itu-50GPON}, and (iii)upon OMCI ACK, begins bursting user traffic on $Y$. The ONU updates its XGEM Port-ID filter~\cite[\S6.2.1]{itu-50GPON} to accept $Y$ and to drop frames with the expired Port-ID $X$.
+At each rotation epoch, the OLT (i)selects a Port-ID $Y$ from the unassigned (unused) pool of the 16-bit Port-ID space~\cite[\S6.5.2.7, Table~6-3]{itu-50GPON}, (ii)reassigns the affected logical connection from $X$ to $Y$ via on OMCI message carried in an encrypted unicast XGEM payload~\cite[\S15.4]{itu-50GPON}, and (iii)upon OMCI ACK, begins transmitting user traffic on $Y$. The ONU updates its XGEM Port-ID filter~\cite[\S6.2.1]{itu-50GPON} to accept $Y$ and to drop frames with the expired Port-ID $X$.
 
 
 \noindent\textbf{Camouflage traffic on expired Port-ID.}
-After rotation, the OLT continues to burst downstream XGEM frames including the header filled with the expired Port-ID $X$. This cover transmission extends beyond the next rotation event, so that at any observation instant the adversary sees multiple Port-IDs simultaneously active: the one carrying real user traffic, and one or more recently expired ones still carrying cover traffic. Cover frames carry encrypted random padding as their payload, and their PLI values are sampled from the empirical PLI distribution observed on $X$ during the preceding window, so that cover frames are statistically indistinguishable from real frames at the header level. Consequently, the adversary cannot detect the rotation boundary, and the PLI sequence observed on $X$ cannot be linked with the one observed on $Y$ as belonging to the same ONU.
-
-carrying the expired Port-ID XX
-X in their XGEM header
+After rotation, the OLT continues to transmit downstream XGEM frames carrying the expired Port-ID $X$ in their XGEM header. This cover transmission extends beyond the next rotation event, so that at any observation instant the adversary sees multiple Port-IDs simultaneously active: the one carrying real user traffic, and one or more recently expired ones still carrying cover traffic. Cover frames carry encrypted random padding as their payload, and their PLI values are sampled from the empirical PLI distribution observed on $X$ during the preceding window, so that cover frames are statistically indistinguishable from real frames at the header level. Consequently, the adversary cannot detect the rotation boundary, and the PLI sequence observed on $X$ cannot be linked with the one observed on $Y$ as belonging to the same ONU.
 
 
 \noindent\textbf{Scope.} SecurePON targets the downstream broadcast channel, which is the side accessible to a splitter sharing adversary~\cite[\S15.1]{itu-50GPON}. Upstream bursts are isolated by the directional nature of the ODN~\cite[\S12.1]{itu-g9843}.
@@ -325,9 +322,9 @@ X in their XGEM header
 \noindent\textbf{Limitations.} Typical PON deployments with split ratios of 1:32 to 1:128 offer a sufficiently large set to prevent the adversary from linking the expired Port-ID to the new Port-ID via timing correlation. In contrast, on a small splitter with only a few of ONUs (e.g., 1:2 PON), the anonymity set is too small and Port-ID rotation provides marginal benefit. \textbf{SecurePON} therefore targets deployments of residential PON access (e.g., PON for MDU, Apartments).
 
 \section{Conclusion}
-We proposed \textbf{SecurePON}, a security-enhanced PON architecture that periodically rotates the XGEM Port-ID via OMCI and burst cover traffic on expired Port-IDs to prevent passive per-ONU PLI sequence collection at the splitter. By reusing functions already defined in Higher Speed PON~\cite{itu-50GPON}, \textbf{SecurePON} remains compatible with existing deployments. As future work, 
+We proposed \textbf{SecurePON}, a security-enhanced PON architecture that periodically rotates the XGEM Port-ID via OMCI and transmit cover traffic on expired Port-IDs to prevent passive per-ONU PLI sequence collection at the splitter. By reusing functions already defined in Higher Speed PON~\cite{itu-50GPON}, \textbf{SecurePON} remains compatible with existing deployments. 
 
-that randomizes the XGEM Port-ID to prevent passive (A). By extending the Higher Speed PON XGEM Architecture by ITU-T framing sublayer, SecurePON aims to remain compatible with existing PON deployments. As future work, 
+As future work, we would like to validate our architecture on Commercial OLT and ONU in Real-World.
 
 
 
